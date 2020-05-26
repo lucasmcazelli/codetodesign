@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas></canvas>
+<script>
+var canvas = document.getElementsByTagName('canvas');
+var ctx = canvas[0].getContext('2d');
+
+var img = new Image();
+img.src = "/api/b";
+
+// it can't draw it at once. it has to wait till it is loaded
+//ctx.drawImage(img, 0, 0);
+
+img.onload = function() {
+  img.style.display = 'none'; // I don't know why they hide it
+
+  console.log('WxH: ' + img.width + 'x' + img.height)
+
+  // convert Image to ImageData
+  //(it has to draw on canvas so it could need second canvas for this)
+
+  ctx.drawImage(img, 0, 0);
+  var imageData = ctx.getImageData(0, 0, img.width, img.height)
+
+  //put ImageData many times  
+  for(x = 0 ; x < 100 ; x += 10) {
+    for(y = 0 ; y < 100 ; y += 10) {
+       ctx.putImageData(imageData, x, y);
+    }
+  }
+};
+</script>
+</body>
+</html>
