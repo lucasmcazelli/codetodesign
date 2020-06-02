@@ -3,12 +3,37 @@
 
 <head>
 
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 
-
+ <title> Web com Flask </title>
 </head>
 
 <body>
+  <h1> Teste do Lucas com flask</h1>
+
+    <header>
+      <div class="container">
+        <h1 class="logo">Ardit's web app</h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('page') }}">Page</a></li>
+            <li><a href="{{ url_for('personal_user') }}">Personal User</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+    <div class="container">
+      {% block content %}
+      {% endblock %}
+    </div>
+
+
+
+
+
+
+
+
 <canvas></canvas>
 <script>
 var canvas = document.getElementsByTagName('canvas');

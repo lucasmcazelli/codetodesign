@@ -28,6 +28,17 @@
 	<body>
 		<p>Wait this isn't a page! Error {{code}}!</p>
 		<br />
+       <header>
+      <div class="container">
+        <h1 class="logo">Ardit's web app</h1>
+        <strong><nav>
+          <ul class="menu">
+            <li><a href="{{ url_for('page') }}">Page</a></li>
+            <li><a href="{{ url_for('personal_user') }}">Personal User</a></li>
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
 		<img src="https://http.cat/{{code}}">
 		<br />
 		<form action="/user">
